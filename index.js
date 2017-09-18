@@ -6,7 +6,7 @@ module.exports = function ({ types: t, template }) {
   const importCssId = Symbol('importCssId')
   const pathId = Symbol('pathId')
 
-  const chunkNameTemplate = template('() => MODULE')
+  const chunkNameTemplate = template("() => typeof chunkNamePrefix !== 'undefined' ? `${chunkNamePrefix}${MODULE}` : MODULE")
   const pathTemplate = template('() => PATH.join(__dirname, MODULE)')
   const resolveTemplate = template('() => require.resolveWeak(MODULE)')
   const loadTemplate = template(
